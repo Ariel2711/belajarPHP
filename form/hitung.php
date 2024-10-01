@@ -1,10 +1,9 @@
 <?php
 session_start();
-if (!isset($_SESSION["username"])) {
-    echo "<script>
-        alert('Login first!');
-        window.location.href = 'login.php';
-    </script>";
+if (isset($_SESSION["username"]) == false) {
+    echo "<script>alert('Redirect to halaman login');</script>";
+    echo "<script>window.location.href = 'login.php';</script>";
+    // header("Location: login.php");
     exit();
 }
 

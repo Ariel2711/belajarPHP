@@ -1,5 +1,12 @@
 <?php
 session_start();
+
+if(isset($_SESSION["username"])){
+    echo "<script>alert('Redirect to halaman hitung');</script>";
+    echo "<script>window.location.href = 'hitung.php';</script>";
+    // header("Location: hitung.php");
+    exit();
+}
 ?>
 <!DOCTYPE html>
 <html>
@@ -21,6 +28,10 @@ session_start();
         <button type="submit">Login</button>
     </form>
     <br>
+    <form action="" method="post">
+        <button type="submit" name="back">Kembali ke halaman awal</button>
+    </form>
+    <br>
 
 
     <?php
@@ -32,6 +43,11 @@ session_start();
         } else {
             echo "<script>alert('Username or Password invalid');</script>";
         }
+    }
+
+    if (isset($_POST['back'])) {
+        header("Location: index.php");
+        exit();
     }
     ?>
 </body>

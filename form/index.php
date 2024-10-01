@@ -19,7 +19,7 @@ session_start();
 
 
         if ($action === 'login') {
-            header("Location: login.php");
+            header(header: "Location: login.php");
             exit();
         } elseif ($action === 'hitung') {
             header("Location: hitung.php");
